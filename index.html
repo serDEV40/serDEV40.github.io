@@ -1,0 +1,967 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>serDEV40 |Blog| Software</title>
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300&display=swap');
+:root{
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+}
+
+.list-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+li{
+    list-style-type:none;
+}
+
+h4{
+    margin:4px 8px
+}
+
+*{
+    padding:0px;
+    box-sizing: border-box;
+    margin: 0px;
+    font-family:'Radio Canada',sans-serif;
+    user-select: none;
+}
+body{
+    background-color:hsla(0,100%,50%,1);
+    background-image:
+    radial-gradient(at 40% 20%, hsla(28,100%,74%,1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355,100%,93%,1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(340,100%,76%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(22,100%,77%,1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(242,100%,70%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0px, transparent 50%);
+}
+
+.hear{
+    justify-content: center;
+    padding: 3px;
+    position:sticky;
+    position:-webkit-sticky;
+    top: 0;
+    z-index: 1;
+    backdrop-filter: saturate(100%) blur(20px); 
+}
+
+.lists{
+    list-style:none;
+    padding:8px 12px;
+    color:whitesmoke;
+    height:45px;
+}
+
+.lists>a{
+    text-decoration: none;
+    color:white;
+}
+
+.lists:hover{
+    transform:scale(0.9);
+    transition:linear 200ms;
+}
+
+.lists>a:hover{
+    border-bottom: solid 1px var(--bs-gray-dark);
+    transition:linear 200ms;
+}
+
+.header{
+    display:flex;
+}
+
+.header_ul{
+    margin: 20px;
+}
+
+.link{
+    display:flex;
+    align-items: center;
+    text-decoration: none;
+    color:#000;
+    outline:none;
+}
+
+.top-bar{
+    text-align: center;
+    padding: 12px 5px;
+    background-color: black;
+    width: 100%;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 62px;
+    z-index: 1;
+    transition:250ms all;
+}
+
+.side-ul>li>a{
+    text-decoration: none;
+    color:#fff;
+    padding: 7px;
+    transition:ease-in-out all .5s;
+    font-weight: 500;
+    height:10vh;
+}
+
+.side-ul>li:hover{
+    transform:scale(1.125);
+    transition: ease-in-out .25s;
+    
+}
+
+.side-ul>li>a:hover{
+    border-bottom:solid 1.5px var(--bs-blue);
+    transition: ease-in-out 1s;
+    transform:scale(1.5);
+}
+
+.side-ul>li{
+    padding: 7px 5px;
+}
+
+.side-ul{
+    overflow-x: hidden;
+}
+
+.bFf{
+    
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    padding:12px;
+    width: 1200px;
+    justify-content: space-between;
+}
+
+main{
+    border-radius: 5px;
+    padding: 12px;
+    position: relative;
+}
+
+.content{
+    width:1200px;
+    margin: 0px auto;
+    padding:20px 10px;
+    border-radius: 5px;
+    display:-ms-grid;
+    display:grid;
+    grid-template-columns: 1fr 3fr;
+    -ms-grid-column:1fr 2fr;
+    gap:30px;
+}
+
+.social{
+    display:grid;
+    display:-ms-grid;
+    grid-template-columns: repeat(3,0.1fr);
+    -ms-grid-column:1fr 2fr;
+    margin: 5px 10px;
+    justify-content: space-between;
+}
+
+.social>a{
+    text-decoration: none;
+}
+
+.location{
+    margin:5px 17px;
+    color:white;
+    font-weight: 600;
+}
+
+.locat{
+    margin:5px 8px;
+    display:inline-block;
+}
+
+.about{
+    padding: 5px 12px;
+    background-color:black;
+    border-radius:0px 0px 5px 5px;
+}
+
+.card_icon{
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    padding: 5px 12px;
+}
+
+.card_icon>img{
+    border:solid 4px black;
+    border-radius: 12.5%;
+    width: 100px;
+}
+
+.title{
+    color:var(--bs-white);
+    margin:5px 8px
+}
+
+.title>p{
+    margin:0px 8px;
+    font-weight:600;
+}
+
+.card_phop{
+    background: black;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.card_phop>img{
+    background:black;
+    border-radius:5px 5px 0px 0px;
+}
+
+.content_card{
+    border: solid 1px;
+    border-radius: 5px;
+    background-color:black;
+    box-shadow:3px 3px 3px 3px rgba(5,5,5,0.2);
+}
+
+.fa-brands{
+    margin: 3px 5px;
+}
+
+.fa-instagram{
+    color: #dc3545;
+}   
+
+.fa-linkedin{
+    color: var(--bs-blue);
+}
+
+.fa-github{
+    color:var(--bs-white);
+}
+
+.lessons{
+    padding: 5px 17px;
+    border: solid 1px grey;
+    margin: 13px 0px;
+    border-radius:5px;
+    box-shadow: 8px 8px 8px 8px rgb(5 5 5 / 10%);
+}
+
+.nav_ul{
+    z-index: 1;
+    justify-content: center;
+    position: fixed;
+    height: 100vh;
+    width: 290px;
+    background-color: #000;
+    transition: all linear 250ms;
+    transform: translate(-300px);
+}
+
+.actv{
+    transform:translate(0px);
+}
+
+.time{
+    margin: auto;
+    width: auto;
+    height: auto;
+    border: solid 5px;
+    padding: 5px;
+    border-radius: 12.5px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+hr{
+    border: solid 1px black;
+    background-color: #000;
+}
+
+.remove{
+    position: fixed;
+    left: 257px;
+    top:10px;
+    border: none;
+    width: 22px;
+    outline: none;
+    height: 22px;
+    background-color: #000;
+    color: #fff;
+    box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+}
+
+.nav_lessons{
+    padding: 5px 8px;
+}
+
+.same{
+    padding: 5px 5px;
+    list-style-type:none;
+    transition: .3s ease-in-out;
+}
+
+.same:hover{
+    transform: scale(1.100);    
+}
+
+.same>a{
+    text-decoration:none;
+    color:black;
+    font-weight: 900;
+}
+
+.arms{
+    width: 100%;
+    height: 2px;
+    background-color:var(--bs-gray);
+}
+
+/* LOADER */
+
+.loader{
+    border:solid 6px #fd7e14;
+    width: 40px;
+    height:40px;
+    background-color: darkolivegreen;
+    position:absolute;
+    left: 50%;
+    top:50%;
+    animation: loading ease-in-out 2s infinite;
+    transition: ease 1s;
+}
+
+@keyframes loading{
+
+    25%{
+        transform:rotate(90deg);
+        background-color:#067d40;
+        border:solid 6px #0d6efd;
+    }
+
+    50%{
+        transform:rotate(180deg);
+        background-color:var(--bs-red);
+        border:solid 6px var(--bs-indigo);
+    }
+
+    75%{
+        transform:rotate(270deg);
+        background-color:black;
+        border:solid 6px darkcyan;
+    }
+
+    100%{
+        transform:rotate(360deg);
+        background-color:#0dcaf0;
+        border:solid 6px var(--bs-teal);
+    }
+}
+/* FOOTER */
+
+#footer{
+    background-color: black;
+    position: relative;
+    padding: 8px 12px;
+    height: 133px;
+    color: var(--bs-white);
+    display: flex;
+    align-items: center;
+    backdrop-filter: saturate(100%) blur(20px);
+}
+
+.foot{
+    margin: 0px auto;
+    padding: 5px;
+    display: flex;
+    width: 1200px;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    color:rgb(139, 127, 127);
+}
+
+.footer_ul{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    width: 140px;
+}
+
+.fa-youtube{
+    color:gray;
+    transition: .25s ease-in-out;
+}
+
+.fa-youtube:hover{
+    color: red;
+    transform: scale(1.25);
+}
+
+.r_1>a>i{
+    color:gray;
+    transition: .25s  ease-in-out;
+}
+
+.r_1>a>i:hover{
+    color:lightgrey;
+    transform:scale(1.25);
+}
+
+/* CONTENT RIGHT */
+
+.content_right{
+    position:relative;
+    top:0;
+    margin:1px 6px 6px 6px;
+}
+
+.content_1{
+    background-color: rgb(230, 227, 227);
+    padding:7px;
+    border: solid 1px white;
+    border-radius:3px;
+    box-shadow: 6px 8px 10px rgba(5,5,5,0.1);
+}
+
+.content_webkit{
+    background-color: rgb(230,227,227);
+    padding: 7px;
+    border: solid 1px white;
+    border-radius: 3px;
+    box-shadow: 6px 8px 10px rgb(5 5 5 / 10%);
+    margin-top:20px;
+}
+
+.content_html{
+    padding:7px;
+}
+
+.content-html-1{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.content-html-1>i{
+    color:orangered;
+}
+.content-html-1>a:hover{
+    background-color:orangered;
+    transition:0.25s ease-in-out;
+    border-radius:6px;
+    color:white;
+}
+
+.content-html-1>a{
+    padding: 0px 12px;
+    text-decoration: none;
+    color: orange;
+}
+
+.content_css{
+    padding:7px;
+}
+
+.content-css-1{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.content-css-1>i{
+    color:#0dcaf0;
+}
+
+.content-css-1>a{
+    text-decoration: none;
+    color:var(--bs-cyan);
+    padding: 4px;
+}
+
+.content-css-1>a:hover{
+    background-color:#0dcaf0;
+    transition:0.25s ease-in-out;
+    border-radius:6px;
+    color:white;
+}
+
+.content_js{
+    padding:7px;
+}
+
+.content-js-1{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.content-js-1>i{
+    color:var(--bs-yellow);
+}
+
+.content-js-1>a{
+    text-decoration:none;
+    color:var(--bs-yellow);
+    padding: 4px;
+}
+
+.content-js-1>a:hover{
+    background-color:var(--bs-yellow);
+    transition:0.25s ease-in-out;
+    border-radius:6px;
+    color:white;
+}
+
+.lists_menu{
+    width: 21px;
+    height:21px;
+    background-color:#000;
+    border-radius:6px;
+    outline:none;
+    border:solid 1.5px white;
+    padding:2px;
+    cursor: pointer;
+    transition:200ms linear;
+    display:block;
+}
+
+.active{
+    transition:300ms;
+}
+
+.lists_menu:hover{
+    transform: scale(1.25);
+}
+
+.prop{
+    padding: 5px;
+}
+
+.prop > button{
+    width: 22.5px;
+    height: 22.5px;
+    border: none;
+    outline: none;
+    box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+    color: whitesmoke;
+    background-color:#000;
+    border-radius:7px;
+}
+
+.ham{
+    height:14.5%;
+    width:80%;
+    background-color:white;
+    margin:2.125px auto;
+}
+
+::-webkit-scrollbar{
+    width:10px;
+    padding: 2px;
+    background-color: gray;
+}
+
+::-webkit-scrollbar-track{
+    background-color:rgb(139, 127, 127);
+    opacity:0.0001;
+    border-radius: 50px;
+    
+}
+
+::-webkit-scrollbar-thumb{
+    background-color:whitesmoke;
+    border-radius:50px;
+}
+
+@media (min-width:360px){
+    .lists{
+        display: flex;
+        margin: 12px 2px;
+        gap:6px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .lists_menu{
+        display:block;
+    }
+    .content{
+        width: auto;
+        display:grid;
+        grid-template-columns:repeat(1,auto);
+    }
+}
+
+@media (min-width:480px){
+    .lists{
+        display: flex;
+        margin: 12px 2px;
+        gap:6px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .lists_menu{
+        display:block;
+    }
+    .content{
+        width: auto;
+        display:grid;
+        grid-template-columns:repeat(1,auto);
+    }
+}
+
+@media (min-width:600px){
+    .lists_menu{
+        display:block;
+    }
+    .content{
+        width: auto;
+        display:grid;
+        grid-template-columns:repeat(1,auto);
+    }
+}
+
+@media (min-width:768px){
+    .lists{
+        display: flex;
+        margin: 12px 2px;
+        gap:6px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .lists_menu{
+        display:block;
+    }
+    .content{
+        width: auto;
+        display:grid;
+        grid-template-columns:repeat(1,auto);
+    }
+}
+
+@media (min-width:992px){
+    .lists{
+        display: flex;
+        margin: 12px 2px;
+        gap:6px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .lists_menu{
+        display:block;
+    }
+    .content{
+        width: auto;
+        display:grid;
+        grid-template-columns:repeat(2,auto);
+    }
+}
+
+@media (min-width:1200px){
+    .lists{
+        display: flex;
+        gap:6px;
+        margin: 12px 2px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .lists_menu{
+        display:none;
+    }
+    .content{
+        width: auto;
+        display:grid;
+        grid-template-columns:repeat(2,auto);
+    }
+}
+</style>
+</head>
+<body>
+    <header class="hear">
+        <div class="navbar">
+            <a href="index.html" class="link">
+                <i class="fa-solid fa-file-code fa-2x"></i>
+                <span style="padding-left: 12px;">serDEV40</span>
+            </a>
+            <div class="prop">
+                <button id="work">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+    </header>
+
+    <nav class="nav_ul">
+        <button class="remove">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <ul class="header_ul">
+            <li class="lists">
+                <i class="fa-solid fa-house" style="margin:0px 5px;"></i>
+                <a href="index.html">Ana Sayfa</a>
+            </li>
+            <li class="lists">
+                <i class="fa-solid fa-fax" style="margin:0px 5px;"></i>
+                <a href="contact.html">İletişim</a>
+            </li>
+            <li class="lists">
+                <i class="fa-solid fa-gamepad" style="margin:0px 5px;"></i>
+                <a href="games.html">Beğendiğim Oyunlar</a>
+            </li>
+            <li class="lists">
+                <i class="fa-solid fa-images" style="margin:0px 5px;"></i>
+                <a href="images.html">Beğendiğim Fotoğraflar</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+    <main class="main">
+        <div class="content">
+            <div class="content_left">
+                <div class="content_card">
+                    <div class="about">
+                        <div class="title">
+                            <h4>Serhat Mete ÇETİN</h4>
+                            <p>Front-End Web Developer</p>
+                        </div>
+                        <div class="location">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span style='margin:0px 0px 0px 8px'>Ankara, TURKEY</span>
+                        </div>
+                        <div class="social">
+                            <a href="" target="_blank" aria-label="instagram">
+                                <i class="fa-brands fa-instagram fa-2x"></i>
+                            </a>                            
+                            <a href="https://www.linkedin.com/in/serhat-mete-%C3%A7etin-27853b228/"  aria-label="linkedin" >
+                                <i class="fa-brands fa-linkedin fa-2x"></i>
+                            </a>
+                            <a href="https://github.com/smete400" aria-label="Git-Hub" >
+                                <i class="fa-brands fa-github fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lessons">
+                    <nav class="nav_lessons">
+                        <ul class="nav_ol">
+                            <li class="same">
+                                <a href="" aria-label="HTML_5">
+                                    HTML5
+                                </a>
+                            </li>
+                            <div class="arms"></div>
+                            <li class="same">
+                                <a href="" aria-label=" ">
+                                    CSS3
+                                </a>
+                            </li>
+                            <div class="arms"></div>
+                            <li class="same">
+                                <a href="" aria-label="javascript">
+                                    JAVASCRIPT
+                                </a>
+                            </li>
+                            <div class="arms"></div>
+                            <li class="same">
+                                <a href="" aria-label="React.js">REACT.JS
+
+                                </a>
+                            </li>
+                            <div class="arms"></div>
+                            <li class="same">
+                                <a href="" aria-label="python">
+                                    PYTHON
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="time">
+                    <ul style=
+                    "display: flex;
+                    justify-content: space-between;
+                    flex-direction: column;">
+                        <li class="list-item">
+                            <span>SAAT:</span>
+                            <div class="hour">
+                                <h3>
+                                </h3>
+                            </div>
+                        </li>
+                        <hr>
+                        <li class="list-item">
+                            <span>DAKİKA: </span>
+                            <div class="mint">
+                                <h3>
+                                </h3>
+                            </div>
+                        </li>
+                        <hr>
+                        <li class="list-item">
+                            <span>
+                                SANİYE: 
+                            </span>
+                            <div class="scnd">
+                                <h3>
+                                </h3>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content_right">
+                <div class="content_1">
+                    <p>
+                        Merhaba ben <strong>Serhat Mete ÇETİN</strong> bu web sitesinde kendi beğendiğim oyunları, fotoğrafları, progmlarama dili, web sitesi yapımında kullanılan araçlara dair kendi adıma  diğer insanların da faydalanması için açtığım bir blog web sitesidir. 
+                    </p>
+                </div>
+                <div class="content_webkit">
+                    <h1>
+                        Bir Front-End Developer'ın Mutlaka Bilmesi Gerekenler
+                    </h1>
+                </div>
+                    <div class="content_webkit">
+                        <div class="content_html">
+                            <div class="content-html-1">
+                                <i class="fa-brands fa-html5 fa-3x"></i>
+                                <a href="#">
+                                    <h2>
+                                        HTML 5
+                                    </h2>
+                                </a>
+                                <div>
+                                    <p>Web tasarım konusunda araştırma yapan hemen herkesin karşına çıkan temel kavram HTMLdir. Web sayfalarını oluşturma aşamasında kullanılan standart bir metin işaret dili olan HTML açılımı <strong>“Hyper Text Markup Language”</strong> olarak bilinir. Genel bilinen yanlış kanının aksine HTML bir programlama dili değildir. Daha açık anlatmak gerekirse, Chrome, Firefox, Yandex gibi tarayıcıların okuyup anlamlandırdığı dil HTML dilidir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_webkit">
+                        <div class="content_css">
+                            <div class="content-css-1">
+                                <i class="fa-brands fa-css3 fa-3x"></i>
+                                <a href="#">
+                                    <h2>
+                                        CSS 3
+                                    </h2>
+                                </a>
+                                <div>
+                                    <p>İngilizcesi “Cascading Style Sheets” olan CSS açılımı, “Basamaklanmış Stil Katmanları” anlamına gelmektedir. “CSS nedir?” sorusunun cevabı ise web sitelerinin görsel olarak şekillendirilmesine olanak tanıyan ve kendine has kuralları olan bir tanım dilidir şeklinde ifade edilebilir. HTML ve JavaScript ile birlikte en temel web teknolojileri arasında bulunan CSS, web sayfaları üzerinde oldukça fazla görsel denetim sunar.
+
+                                    CSS sayesinde web sayfalarının mizanpajı, renkleri, kullanılan fontlar, ara başlıklar, görsel efektler ve diğer görsel unsurlar üzerinde etkili ve fonksiyonel bir kontrol sağlayabilirsiniz. Kullanıcı dostu olan ve görsel açıdan etkileyici web siteleri için HTML ve JavaScript’in yanı sıra yazılan CSS kodları son derece önem taşır. Etkili bir CSS kodlaması, web sitelerine yüksek bir kullanılabilirlik sunar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_webkit">
+                        <div class="content_js">
+                            <div class="content-js-1">
+                                <i class="fa-brands fa-js fa-3x"></i>
+                                <a href="">
+                                    <h2>
+                                    JAVASCRIPT
+                                    </h2>
+                                </a>
+                                <div>
+                                    <p>
+                                        JavaScript, hem sunucu tarafında hem de bir ağ üzerinde, sunucu bilgisayarlardan hizmet alan kullanıcı tarafında kullanılan ve web sayfalarını etkileşimli hale getirmenize olanak tanıyan metin tabanlı bir programlama dilidir.JavaScript dinamik bir bilgisayar programlama dilidir. Kolaydır ve yaygın olarak, uygulamaları istemci tarafı komut dosyasının kullanıcıyla etkileşime girmesine ve dinamik sayfalar oluşturmasına izin veren web sayfalarının bir parçası olarak kullanılmaktadır. Nesne yönelimli yeteneklere sahip yorumlanmış bir programlama dilidir. JavaScript ilk olarak LiveScript olarak bilinmekteydi. Ancak Netscape, muhtemelen Java'nın yarattığı heyecan nedeniyle adını JavaScript olarak değiştirmiştir.
+
+                                        JavaScript, ilk görünümünü LiveScript adıyla 1995 yılında Netscape 2.0'da yapmıştır. Dilin genel amaçlı çekirdeği Netscape, Internet Explorer ve diğer web tarayıcılarına gömülüdür. ECMA 262 Teknik çekirdek JavaScript dili standart bir versiyonunu tanımlandığı gibi kullanılmaktadır. JavaScript, hafif, yorumlanmış bir programlama dilidir ve ağ merkezli uygulamalar oluşturmak için tasarlanmıştır.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="foot">
+            © Tüm Hakları Saklıdır
+                <ul class="footer_ul">
+                    <li class="l_1">
+                        <a href="https://www.youtube.com/channel/UCweUZct3VCiHlay2ocJ_r3Q"                aria-label="Youtube">
+                            <i class="fa-brands fa-youtube fa-2x"></i>
+                        </a>
+                    </li>
+                    <li class="r_1">
+                        <a href="https://github.com/smete400" aria-label="Git-Hub" >
+                            <i class="fa-brands fa-github fa-2x mres"></i>
+                        </a>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+    </footer>
+    <!--  -->
+    <div class="loader" id="load"></div>
+    <!--  -->
+    <script>
+        document.querySelector('main').style.display='none';
+        document.querySelector('header').style.display='none';
+        document.querySelector('#footer').style.display='none'
+        document.getElementById('load').classList.add('loader');
+
+        setTimeout(loading,2000);
+        function loading(){
+            document.getElementById('load').style.display='none';
+            document.querySelector('main').style.display="";
+            document.querySelector('header').style.display='flex';
+            document.getElementById('footer').style.display="";
+        }
+      
+      const hour = document.querySelector(".hour");
+const mint = document.querySelector(".mint");
+const scnd = document.querySelector(".scnd");
+let button = document.querySelector("#work");
+let remove = document.querySelector(".remove");
+
+function updateTime(){
+    let zaman = new Date();     
+    hour.innerText = zaman.getHours();
+    mint.innerText = zaman.getMinutes();
+    scnd.innerText = zaman.getSeconds();
+
+    setTimeout(()=>{
+        updateTime();
+    },1000);
+}
+
+button.addEventListener("click",()=>{
+    document.querySelector(".nav_ul").classList.add("actv");
+})
+
+remove.addEventListener("click",()=>{
+    document.querySelector(".nav_ul").classList.remove("actv");
+})
+
+updateTime();
+
+    </script>
+    <script src="functions.js"></script>
+</body>
+</html>
